@@ -1,4 +1,4 @@
-MomenticsMocks
-==============
+MomenticsUnitMocks
+==================
 
-Mocks to be used with UnitTestingMomenticsPlugin
+Mocks to be used with MomenticsUnitTestingPlugin
