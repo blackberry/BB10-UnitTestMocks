@@ -114,6 +114,20 @@ public:
         bb::cascades::ContextMenuHandler* contextMenuHandler() { return mock<ControlMock>()->contextMenuHandler(); }
         void setContextMenuHandler(bb::cascades::ContextMenuHandler* contextMenuHandler) { mock<ControlMock>()->setContextMenuHandler( contextMenuHandler); }
         void resetContextMenuHandler() { mock<ControlMock>()->resetContextMenuHandler(); }
+        void setImplicitLayoutAnimationsEnabled(bool enable) { mock<ControlMock>()->setImplicitLayoutAnimationsEnabled(enable); }
+        bool implicitLayoutAnimationsEnabled() const { return mock<ControlMock>()->implicitLayoutAnimationsEnabled(); }
+        void resetImplicitLayoutAnimationsEnabled() { mock<ControlMock>()->resetImplicitLayoutAnimationsEnabled(); }
+        void addShortcut(bb::cascades::AbstractShortcut* shortcut) { mock<ControlMock>()->addShortcut(shortcut); }
+        bool removeShortcut(bb::cascades::AbstractShortcut* shortcut) { return mock<ControlMock>()->removeShortcut(shortcut); }
+        void removeAllShortcuts() { mock<ControlMock>()->removeAllShortcuts(); }
+        int shortcutCount() const { return mock<ControlMock>()->shortcutCount(); }
+        bb::cascades::AbstractShortcut* shortcutAt(int index) const { return mock<ControlMock>()->shortcutAt(index); }
+        void enableAllShortcuts() { mock<ControlMock>()->enableAllShortcuts(); }
+        void disableAllShortcuts() { mock<ControlMock>()->disableAllShortcuts(); }
+        void addKeyListener(bb::cascades::KeyListener* keyListener) { mock<ControlMock>()->addKeyListener(keyListener); }
+        bool removeKeyListener(bb::cascades::KeyListener* keyListener) { return mock<ControlMock>()->removeKeyListener(keyListener); }
+        int keyListenerCount() const { return mock<ControlMock>()->keyListenerCount(); }
+        bb::cascades::KeyListener* keyListenerAt(int index) const { return mock<ControlMock>()->keyListenerAt(index); }
         void horizontalAlignmentChanged(bb::cascades::HorizontalAlignment::Type newHorizontalAlignment) { mock<ControlMock>()->horizontalAlignmentChanged( newHorizontalAlignment); }
         void verticalAlignmentChanged(bb::cascades::VerticalAlignment::Type newVerticalAlignment) { mock<ControlMock>()->verticalAlignmentChanged( newVerticalAlignment); }
         void preferredWidthChanged(float preferredWidth) { mock<ControlMock>()->preferredWidthChanged( preferredWidth); }
@@ -231,7 +245,23 @@ public:
             BuilderType& contextMenuHandler(ContextMenuHandler* contextMenuHandler) {
               this->instance().setContextMenuHandler(contextMenuHandler);
               return this->builder();
-            }        
+            }
+            BuilderType& implicitLayoutAnimations(bool _enabled) {
+              this->instance().setImplicitLayoutAnimationsEnabled(_enabled);
+              return this->builder();
+            }
+            BuilderType& addShortcut(AbstractShortcut* shortcut) {
+              this->instance().addShortcut(shortcut);
+              return this->builder();
+            }
+            BuilderType& addKeyListener(KeyListener* keyListener) {
+              this->instance().addKeyListener(keyListener);
+              return this->builder();
+            }
+            BuilderType& primaryKeyTarget(bool primaryKeyTarget) {
+              this->instance().inputRoute()->setPrimaryKeyTarget(primaryKeyTarget);
+              return this->builder();
+            }
         };
 protected:
         Control(QObject *parent = 0): VisualNode(parent) {}

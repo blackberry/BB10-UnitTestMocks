@@ -35,6 +35,7 @@ namespace bb {
     class MultiSelectHandler;
     class MultiSelectActionItem;
     class ListView : public Control {
+    	Q_OBJECT
 public:
         const QVariantList AllItems;
         ListView(Container *parent = 0) { }

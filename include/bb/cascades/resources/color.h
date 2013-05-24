@@ -124,6 +124,7 @@ namespace bb {
            	_g = g;
            	_b = b;
            	_a = alpha;
+           	_isNull = false;
         }
         float _r;
         float _g;
@@ -135,6 +136,8 @@ namespace bb {
 
 }
 }
+
+Q_DECLARE_METATYPE(bb::cascades::Color)
 
 #endif	/* cascades_color_h */
 

@@ -22,26 +22,29 @@
 #include <QDebug>
 #include <bb/cascades/resources/paint.h>
 #include <bb/cascades/resources/repeatpattern.h>
+#include <bb/cascades/Image>
 namespace bb {
     namespace cascades {
     class ImagePaintDataPrivate;
-    class Image;    
     class ImagePaint : public Paint
     {
 public:
-        ImagePaint();
+        ImagePaint() { }
         ImagePaint(const QUrl& url,
-                            RepeatPattern::Type pattern = RepeatPattern::Fill);
+                            RepeatPattern::Type pattern = RepeatPattern::Fill) { }
         ImagePaint(const Image& image,
-                            RepeatPattern::Type pattern = RepeatPattern::Fill);
-        ImagePaint(const ImagePaint& orig);
-        ImagePaint& operator=(const ImagePaint& other);
-        virtual ~ImagePaint();
-        bool operator==(const Paint &other) const;
-        bool operator!=(const Paint &other) const;
+                            RepeatPattern::Type pattern = RepeatPattern::Fill) { }
+        ImagePaint(const ImagePaint& orig) { }
+        ImagePaint& operator=(const ImagePaint& other) { return *this; }
+        virtual ~ImagePaint() { }
+        bool operator==(const Paint &other) const { return false; }
+        bool operator!=(const Paint &other) const { return true; }
         MOCK_CONST_METHOD0(repeatPattern, RepeatPattern::Type ());
         MOCK_CONST_METHOD0(image, Image ());
     };
     }
 }
+
+Q_DECLARE_METATYPE(bb::cascades::ImagePaint)
+
 #endif

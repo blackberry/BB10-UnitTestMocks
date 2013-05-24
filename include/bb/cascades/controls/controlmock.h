@@ -28,6 +28,8 @@ namespace bb {
     class ControlPrivate;
     class ContextMenuHandler;
     class LayoutProperties;
+    class AbstractShortcut;
+    class KeyListener;
     class ControlMock : public VisualNodeMock {
 public:
         virtual ~ControlMock() { }
@@ -113,6 +115,20 @@ public:
         MOCK_CONST_METHOD0(contextMenuHandler, bb::cascades::ContextMenuHandler* ());
         MOCK_METHOD1(setContextMenuHandler, void (bb::cascades::ContextMenuHandler* contextMenuHandler));
         MOCK_METHOD0(resetContextMenuHandler, void ());
+        MOCK_METHOD1(setImplicitLayoutAnimationsEnabled, void (bool enable));
+        MOCK_CONST_METHOD0(implicitLayoutAnimationsEnabled, bool());
+        MOCK_METHOD0(resetImplicitLayoutAnimationsEnabled, void());
+        MOCK_METHOD1(addShortcut, void(bb::cascades::AbstractShortcut* shortcut));
+        MOCK_METHOD1(removeShortcut, bool(bb::cascades::AbstractShortcut* shortcut));
+        MOCK_METHOD0(removeAllShortcuts, void());
+        MOCK_CONST_METHOD0(shortcutCount, int());
+        MOCK_CONST_METHOD1(shortcutAt, bb::cascades::AbstractShortcut*(int index));
+        MOCK_METHOD0(enableAllShortcuts, void());
+        MOCK_METHOD0(disableAllShortcuts, void());
+        MOCK_METHOD1(addKeyListener, void(bb::cascades::KeyListener* keyListener));
+        MOCK_METHOD1(removeKeyListener, bool(bb::cascades::KeyListener* keyListener));
+        MOCK_CONST_METHOD0(keyListenerCount, int());
+        MOCK_CONST_METHOD1(keyListenerAt, bb::cascades::KeyListener*(int index));
         MOCK_METHOD1(horizontalAlignmentChanged, void (bb::cascades::HorizontalAlignment::Type newHorizontalAlignment));
         MOCK_METHOD1(verticalAlignmentChanged, void (bb::cascades::VerticalAlignment::Type newVerticalAlignment));
         MOCK_METHOD1(preferredWidthChanged, void (float preferredWidth));

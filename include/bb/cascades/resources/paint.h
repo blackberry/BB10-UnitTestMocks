@@ -24,16 +24,16 @@ namespace bb {
     public:
         virtual ~Paint() { }
 
-        virtual bool operator==(const Paint &other) const = 0;
+        virtual bool operator==(const Paint &other) const { return false; };
 
-        virtual bool operator!=(const Paint &other) const = 0;
+        virtual bool operator!=(const Paint &other) const { return true; };
 
         Paint() { }
         Paint(const Paint &orig) {  }
 
         Paint& operator=(const Paint& other) { return *this; }
 
-        virtual bool isNull() const = 0;
+        virtual bool isNull() const { return true; };
     };
     
 }

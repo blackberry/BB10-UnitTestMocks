@@ -35,4 +35,6 @@ namespace bb {
 }
 }
 
+Q_DECLARE_METATYPE(bb::cascades::ColorPaint)
+
 #endif	/* cascades_colorpaint_h */

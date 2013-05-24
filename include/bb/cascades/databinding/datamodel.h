@@ -29,14 +29,12 @@ namespace bb {
 namespace cascades {
     class DataModel : public QObject, public bb::testing::ProxyBase<DataModelMock> {
 public:
-    	/*
         class IndexMapper {
         public:
         	virtual ~IndexMapper() { }
 			MOCK_CONST_METHOD3(newIndexPath, bool (QVariantList *pOutIndexPath, int *pOutReplacementIndex,
 				const QVariantList &oldIndexPath));
         };
-        */
 
         DataModel(QObject* parent = 0): QObject(parent), bb::testing::ProxyBase<DataModelMock>() { }
         virtual ~DataModel() { }
