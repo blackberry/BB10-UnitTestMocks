@@ -22,18 +22,12 @@
 #include <QtCore/QVariant>
 #include <QSharedPointer>
 #include <bb/cascades/bbcascades_global.h>
+#include <bb/cascades/databinding/indexmapper.h>
+
 namespace bb {
 namespace cascades {
     class DataModelMock : public QObject {
 public:
-    	/*
-        class IndexMapper {
-        public:
-        	virtual ~IndexMapper() { }
-			MOCK_CONST_METHOD3(newIndexPath, bool (QVariantList *pOutIndexPath, int *pOutReplacementIndex,
-				const QVariantList &oldIndexPath));
-        };
-        */
         DataModelMock(QObject *parent = 0) { }
         virtual ~DataModelMock() { }
         MOCK_METHOD1(childCount, int (const QVariantList &indexPath));
@@ -43,21 +37,16 @@ public:
         MOCK_METHOD1(itemAdded, void (QVariantList indexPath));
         MOCK_METHOD1(itemUpdated, void (QVariantList indexPath));
         MOCK_METHOD1(itemRemoved, void (QVariantList indexPath));
-        /*
+
         MOCK_METHOD0(itemsChanged,
         		void());
         MOCK_METHOD1(itemsChanged,
-        		void (QSharedPointer<bb::cascades::IndexMapper> indexMapper));
+        		void (QSharedPointer<bb::cascades::IndexMapperFake> indexMapper));
         MOCK_METHOD1(itemsChanged,
         		void (bb::cascades::DataModelChangeType::Type eChangeType));
         MOCK_METHOD2(itemsChanged,
         		void (bb::cascades::DataModelChangeType::Type eChangeType,
-        		QSharedPointer<bb::cascades::IndexMapper> indexMapper));
-        		*/
-        //TODO: looks like bob's script failed here
-        //void itemsChanged(bb::cascades::DataModelChangeType::Type eChangeType = bb::cascades::DataModelChangeType::Init,
-         //   QSharedPointer<bb::cascades::DataModel::IndexMapper> indexMapper =
-         //   QSharedPointer<bb::cascades::DataModel::IndexMapper>(0)) { }
+        		QSharedPointer<bb::cascades::IndexMapperFake> indexMapper));
     };
 }
 }
