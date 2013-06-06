@@ -18,10 +18,10 @@
 #include "gmock/gmock.h"
 #include <bb/cascades/bbcascades_global.h>
 #include <bb/cascades/animation/abstractanimation.h>
+#include <bb/cascades/animation/easingcurve.h>
 namespace bb {
     namespace cascades {
 class AbstractTransitionPrivate;
-class EasingCurve;
 class AbstractTransition : public AbstractAnimation {
 public:
     MOCK_CONST_METHOD0(duration, int ());

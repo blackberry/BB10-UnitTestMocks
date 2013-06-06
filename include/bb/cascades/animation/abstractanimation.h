@@ -52,6 +52,7 @@ public:
     MOCK_METHOD1(delayChanged, void (int delay));
     MOCK_METHOD1(repeatCountChanged, void (int repeatCount));
     MOCK_METHOD1(stateChanged, void (bb::cascades::AnimationState::Type state));
+    MOCK_METHOD1(setAutoDeleted, void (bool));
 public:
     typedef AbstractAnimation ThisClass;
     typedef UIObject BaseClass;

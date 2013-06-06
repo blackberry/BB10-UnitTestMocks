@@ -23,8 +23,8 @@ namespace bb {
 class FadeTransitionPrivate;
 class FadeTransition : public AbstractTransition {
 public:
-    FadeTransition();
-    virtual ~FadeTransition();
+    FadeTransition() { }
+    virtual ~FadeTransition() { }
     MOCK_CONST_METHOD0(fromOpacity, float ());
     MOCK_METHOD1(setFromOpacity, void (float value));
     MOCK_METHOD0(resetFromOpacity, void ());
